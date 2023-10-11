@@ -15,15 +15,31 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetcher } from '../Redux/Operations';
 import { selectContacts } from '../Redux/Contactsslice';
+import { Header } from './Header/Header';
+import { Route, Routes } from 'react-router-dom';
+import { Home } from '../../src/pages/Home';
+import { Register } from '../../src/pages/Register';
+import { LogIn } from '../../src/pages/LogIn ';
+// import { AboutUser } from './AuthNav/AboutUser/AboutUser';
+// import { LoginForm } from './loginForm/LoginForm';
+// import { RegisterForm } from '../components/registrationForm/RegistrationForm';
+// const StyledLink = styled(NavLink)`
+//   color: black;
+
+//   &.active {
+//     color: orange;
+//   }
+// `;
+
 export const App = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
 
-  useEffect(() => {
-    dispatch(fetcher());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetcher());
+  // }, [dispatch]);
 
   return (
     <>
@@ -32,13 +48,19 @@ export const App = () => {
         {error && <span>{error}</span>}
       </div>
       <Layout>
-        <Title>PHONEBOOK</Title>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LogIn />} />
+        </Routes>
+        {/* <Title>PHONEBOOK</Title>
         <FormFormik />
         <TitleBook>CONTACTS</TitleBook>
         <FilterCon />
         {contacts.length > 0 ? <ContactList /> : <p>Something wrong....</p>}
         <GlobalStyle />
-        <ToastContainer position="top-center" autoClose={1000} theme="dark" />
+        <ToastContainer position="top-center" autoClose={1000} theme="dark" /> */}
       </Layout>
     </>
   );
