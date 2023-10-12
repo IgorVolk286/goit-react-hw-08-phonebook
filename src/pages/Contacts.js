@@ -11,7 +11,7 @@ export const Contacts = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  const isLoading = useSelector(selectIsLoading);
+  // const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(fetcher());
