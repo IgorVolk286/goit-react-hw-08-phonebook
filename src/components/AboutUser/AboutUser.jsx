@@ -3,11 +3,12 @@ import { selectUser } from 'Redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const AboutUser = () => {
-  const { name } = useSelector(selectUser);
+  const user = useSelector(selectUser);
+  console.log(user);
   const dispatch = useDispatch();
   return (
     <div>
-      <p>WELCOME,{name}</p>
+      {/* <p> WELCOME,{user.name}</p> */}
       <button type="submit" onClick={() => dispatch(logOut())}>
         LOGOUT
       </button>

@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 export const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-
   return (
     <nav>
       <NavLink to="/"> Home </NavLink>
