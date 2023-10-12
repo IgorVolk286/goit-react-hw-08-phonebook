@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FilterCon } from '../components/FilterContacts/FilterContacts';
 import { ContactList } from '../components/ContactsList/ContactList';
-import { selectContacts, selectIsLoading } from '../Redux/Contactsslice';
+import { selectContacts } from '../Redux/Contactsslice';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetcher } from 'Redux/Operations';
 import { useEffect } from 'react';
