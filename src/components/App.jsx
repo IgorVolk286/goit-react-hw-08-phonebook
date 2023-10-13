@@ -1,17 +1,13 @@
 import { selectIsLoading, selectError } from '../Redux/Contactsslice';
-// import { FilterCon } from './FilterContacts/FilterContacts';
-// import { ContactList } from './ContactsList/ContactList';
-import { Layout } from './Layout';
-// import { Title, TitleBook } from './App.styled';
+
+import { LayOut } from './Layout';
+
 import { GlobalStyle } from './GlobalStyled';
-// import { FormFormik } from './form/FormFormik';
-// import { ToastContainer } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { fetcher } from '../Redux/Operations';
-// import { selectContacts } from '../Redux/Contactsslice';
-import { Header } from './Header/Header';
+
 import { Route, Routes } from 'react-router-dom';
 import { Home } from '../../src/pages/Home';
 import { Register } from '../../src/pages/Register';
@@ -19,9 +15,9 @@ import { LogIn } from '../../src/pages/LogIn ';
 import { Contacts } from 'pages/Contacts';
 import { refreshUser } from 'Redux/auth/operation';
 import { selectIsRefreshing } from 'Redux/auth/selectors';
-// import { AboutUser } from './AuthNav/AboutUser/AboutUser';
-// import { LoginForm } from './loginForm/LoginForm';
-// import { RegisterForm } from '../components/registrationForm/RegistrationForm';
+import { RestrictedRoute } from '../components/RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
+
 // const StyledLink = styled(NavLink)`
 //   color: black;
 
@@ -32,7 +28,7 @@ import { selectIsRefreshing } from 'Redux/auth/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const contacts = useSelector(selectContacts);
+
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -49,23 +45,34 @@ export const App = () => {
         {isLoading && <p>Loading contacts....</p>}
         {error && <span>{error}</span>}
       </div>
-      <Layout>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/contacts" element={<Contacts />} />
-        </Routes>
 
-        {/* <Title>PHONEBOOK</Title>
-        <FormFormik />
-        <TitleBook>CONTACTS</TitleBook>
-        <FilterCon />
-        {contacts.length > 0 ? <ContactList /> : <p>Something wrong....</p>}
-      
-        <ToastContainer position="top-center" autoClose={1000} theme="dark" /> */}
-      </Layout>
+      <Routes>
+        <Route path="/" element={<LayOut />}>
+          <Route index element={<Home />} />
+
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<Register />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/contacts" component={<LogIn />} />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<Contacts />} />
+            }
+          />
+        </Route>
+      </Routes>
       <GlobalStyle />
     </>
   );
