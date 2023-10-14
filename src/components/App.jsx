@@ -1,13 +1,9 @@
 import { selectIsLoading, selectError } from '../Redux/Contactsslice';
-
 import { LayOut } from './Layout';
-
 import { GlobalStyle } from './GlobalStyled';
-
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { Route, Routes } from 'react-router-dom';
 import { Home } from '../pages/HomePage/Home';
 import { Register } from '../pages/RegisterPage/Register';
