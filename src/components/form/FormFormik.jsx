@@ -2,7 +2,7 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import { Formik } from 'formik';
 import { toast } from 'react-toastify';
-import { addContact } from '../../Redux/operations';
+import { addContact } from '../../Redux/operations ';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectContacts } from '../../Redux/Contactsslice';

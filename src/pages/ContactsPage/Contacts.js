@@ -5,7 +5,7 @@ import { FilterCon } from '../../components/FilterContacts/FilterContacts';
 import { ContactList } from '../../components/ContactsList/ContactList';
 import { selectContacts } from '../../Redux/Contactsslice';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetcher } from '../../Redux/operations';
+import { fetcher } from '../../Redux/operations ';
 import { useEffect } from 'react';
 import { WrapContactsPage } from './Contacts styled';
 export const Contacts = () => {
