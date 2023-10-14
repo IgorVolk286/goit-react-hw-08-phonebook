@@ -44,9 +44,27 @@ export const Button = styled.button`
   background-color: aqua;
   border-radius: 5px;
   color: #111111;
+  margin-right: 15px;
   cursor: pointer;
   &:hover {
     background: red;
+    color: #ffffff;
+  }
+`;
+export const ButtonC = styled.button`
+  padding: 5px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  background-color: aqua;
+  border-radius: 5px;
+  color: #111111;
+  margin-right: 15px;
+  cursor: pointer;
+  &:hover {
+    background: green;
     color: #ffffff;
   }
 `;

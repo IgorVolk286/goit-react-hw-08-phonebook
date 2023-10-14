@@ -7,4 +7,5 @@ export const WrapContactsPage = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding-top: 40px;
+  position: relative;
 `;

@@ -44,6 +44,23 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+export const updateContact = createAsyncThunk(
+  'contacts/patchContact',
+  async (id, { name, number }) => {
+    try {
+      const response = await axios.patch(`/contacts/contact/${id}`, {
+        name,
+        number,
+      });
+      // }, headers: {
+      //   'content-type': 'text/json'
+      // });
+      return response.data;
+    } catch (error) {
+      return error.message;
+    }
+  }
+);
 
 /// без асинк\\\\
 
