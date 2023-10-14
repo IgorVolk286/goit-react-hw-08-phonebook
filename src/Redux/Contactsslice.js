@@ -1,5 +1,5 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
-import { fetcher, addContact, deleteContact } from '../Redux/operations';
+import { fetcher, addContact, deleteContact } from './operations';
 import { selectFilter } from './Filterslice';
 import { logOut } from './auth/operation';
 const handlePending = state => {
