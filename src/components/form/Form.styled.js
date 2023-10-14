@@ -25,15 +25,20 @@ export const TitleInput = styled.label`
   margin-bottom: 20px;
 `;
 export const AddButton = styled.button`
-  width: 250px;
-  padding: 10px;
-  background-color: #e0e0e0;
-  border-radius: 3px;
+  width: 200px;
+  padding: 8px;
+  font-size: 18px;
+  border-radius: 5px;
+  font-weight: 400;
+  background-color: blue;
+  font-weight: 600;
+  color: #ffffff;
   transition: background-color 250ms linear, transform 250ms ease-in-out;
-  font-size: 20px;
-  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
   &:hover {
-    background-color: #99ff99;
+    background-color: green;
     transform: scale(1.2);
   }
 `;
@@ -41,4 +46,9 @@ export const Message = styled(ErrorMessage)`
   font-size: 24px;
   color: red;
   font-weight: 400;
+`;
+export const TitleCreate = styled.h2`
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
 `;

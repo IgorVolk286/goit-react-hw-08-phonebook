@@ -3,8 +3,10 @@ import { styled } from 'styled-components';
 export const LabelFilterContact = styled.label`
   font-size: 30px;
   font-weight: 400;
-  margin-left: 85px;
+  margin-left: 115px;
+  margin-right: auto;
 `;
+
 export const InputFilter = styled.input`
   width: 1000px;
   height: 50px;

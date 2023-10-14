@@ -9,22 +9,15 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Route, Routes } from 'react-router-dom';
-import { Home } from '../../src/pages/Home';
-import { Register } from '../../src/pages/Register';
-import { LogIn } from '../../src/pages/LogIn ';
-import { Contacts } from 'pages/Contacts';
+import { Home } from '../pages/HomePage/Home';
+import { Register } from '../pages/RegisterPage/Register';
+import { LogIn } from '../pages/LoginPage/LogIn ';
+import { Contacts } from 'pages/ContactsPage/Contacts';
 import { refreshUser } from 'Redux/auth/operation';
 import { selectIsRefreshing } from 'Redux/auth/selectors';
 import { RestrictedRoute } from '../components/RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
-
-// const StyledLink = styled(NavLink)`
-//   color: black;
-
-//   &.active {
-//     color: orange;
-//   }
-// `;
+import { Footer } from './Footer/Footer ';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -45,7 +38,6 @@ export const App = () => {
         {isLoading && <p>Loading contacts....</p>}
         {error && <span>{error}</span>}
       </div>
-
       <Routes>
         <Route path="/" element={<LayOut />}>
           <Route index element={<Home />} />
@@ -73,6 +65,7 @@ export const App = () => {
           />
         </Route>
       </Routes>
+      <Footer />
       <GlobalStyle />
     </>
   );

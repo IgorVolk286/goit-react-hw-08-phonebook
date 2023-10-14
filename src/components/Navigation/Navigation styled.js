@@ -1,12 +1,12 @@
-import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-export const WrapNav = styled.div`
+export const WrapNav = styled.nav`
   display: flex;
   gap: 40px;
 `;
 
-export const Nav = styled(NavLink)`
+export const NavMain = styled(NavLink)`
   font-size: 24px;
   font-weight: 600;
   font-style: italic;

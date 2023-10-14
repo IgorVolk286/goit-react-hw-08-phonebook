@@ -13,12 +13,11 @@ export const FilterCon = () => {
 
   return (
     <LabelFilterContact LabelFilter htmlFor={nanoid()}>
-      FILTER CONTACTS
       <InputFilter
         type="text"
         value={filter}
         onChange={filtered}
-        placeholder="Enter name"
+        placeholder="Find contact"
       />
     </LabelFilterContact>
   );

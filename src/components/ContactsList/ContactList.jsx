@@ -1,27 +1,41 @@
 import { selectVisibleContacts } from '../../Redux/Contactsslice';
-import { List, ListItem, Text, ButtonDelete } from './ContactList.styled';
+import {
+  List,
+  ListItem,
+  Text,
+  Button,
+  Wrap,
+  TitleContactList,
+} from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../../Redux/Operations';
+import { deleteContact } from '../../Redux/operations';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
   const visibleContact = useSelector(selectVisibleContacts);
 
   return (
-    <List>
-      {visibleContact.map(({ name, id, number }) => {
-        return (
-          <ListItem key={id} id={id}>
-            <Text>
-              {name} : {number}
-            </Text>
-            <ButtonDelete onClick={() => dispatch(deleteContact(id))}>
-              DELETE
-            </ButtonDelete>
-          </ListItem>
-        );
-      })}
-    </List>
+    <Wrap>
+      <TitleContactList> CONTACTS LIST </TitleContactList>
+      <List>
+        {visibleContact.map(({ name, id, number }) => {
+          return (
+            <ListItem key={id} id={id}>
+              <>
+                <Text> Name: {name} </Text> <br></br>
+                <Text> Number: {number}</Text>
+              </>
+              <Button type="button" onClick={() => dispatch(deleteContact(id))}>
+                DELETE
+              </Button>
+              {/* <Button type="button" onClick={() => dispatch(changeContact(id))}>
+                CHANGE
+              </Button> */}
+            </ListItem>
+          );
+        })}
+      </List>
+    </Wrap>
   );
 };
 
